@@ -1,4 +1,4 @@
-job('NodeJS example') { // Job NAME
+job('NodeJS CD') { // Job NAME
     scm { // Configure Source control management 
         git('https://github.com/cdboyyyy/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
