@@ -1,24 +1,16 @@
-pipelineJob('NodeJS Docker example') {
-    scm {
-        git('https://github.com/cdboyyyy/docker-cicd.git' ,'advanced') {  node -> // is hudson.plugins.git.GitSCM
-            node / gitConfigName('DSL cdboyyyy')
-            node / gitConfigEmail('cdboyyyy@gmail.com')
-
+pipelineJob('job-dsl-plugin') {
+  definition {
+    cpsScm {
+      scm {
+        git {
+          remote {
+            url('https://github.com/cdboyyyy/docker-cicd.git')
+          }
+          branch('*/advanced')
         }
+        scriptPath('./apps/app2/')
+      }
+      lightweight()
     }
-    triggers {
-        scm('H/5 * * * *')
-    }
-    steps {
-        dockerBuildAndPublish {
-            repositoryName('cdboyyyy/course')
-            tag('${GIT_REVISION,length=9}')
-            registryCredentials('34a5d27b-a837-4dd4-a52f-bc3d6748f58c')
-            forcePull(false)
-            forceTag(false)
-            createFingerprints(false)
-            skipDecorate()
-            buildContext('./apps/app2/')
-        }
-    }
+  }
 }
