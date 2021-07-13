@@ -25,7 +25,7 @@ node {
    }                                     
    stage('docker build/push') {            
      docker.withRegistry('cdboyyyy/course', 'dockerhub') {
-       def app = docker.build("cdboyyyy/course/docker-nodejs-demo:${commit_id}", '.').push()
+       def app = docker.build("cdboyyyy/course:${commit_id}", '.').push()
      }                                     
    }                                       
 } 
