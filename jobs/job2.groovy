@@ -10,7 +10,7 @@ job('NodeJS Docker example') {
     }
     steps {
         dockerBuildAndPublish {
-            repositoryName(cdboyyyy/course)
+            repositoryName('cdboyyyy/course/test')
             tag('${GIT_REVISION,length=9}')
             registryCredentials('34a5d27b-a837-4dd4-a52f-bc3d6748f58c')
             forcePull(false)
