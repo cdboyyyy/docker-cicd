@@ -8,7 +8,7 @@ pipelineJob('job-dsl-plugin') {
           }
           branch('*/advanced')
         }
-        scriptPath('./apps/app1/jenkinsfile.groovy')
+        scriptPath('./apps/app2/jenkinsfile.groovy')
       }
       lightweight()
     }
