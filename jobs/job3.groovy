@@ -18,7 +18,7 @@ pipelineJob('NodeJS Docker example') {
             forceTag(false)
             createFingerprints(false)
             skipDecorate()
-            buildContext('./apps/app1/')
+            buildContext('./apps/app2/')
         }
     }
 }
